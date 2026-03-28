@@ -529,6 +529,11 @@ function clearAll() {
   displayEl.classList.remove('error');
 }
 
+function clearHistory() {
+  historyList = [];
+  setMode('history');
+}
+
 function previewResult() {
   if (!expression) {
     resultEl.textContent = '\u00a0';
@@ -656,7 +661,9 @@ function setMode(mode) {
           <span style="color:var(--green)">= ${h.result}</span>
         </div>
       `).join('');
-      keypad.innerHTML = rows;
+      keypad.innerHTML = rows + `
+        <button class="btn clear wide" onclick="clearHistory()" style="grid-column: span 4; height: 40px; margin-top: 8px; font-size: 11px;">Clear History</button>
+      `;
     }
   } else {
     // Basic
