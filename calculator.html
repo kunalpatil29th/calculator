@@ -22,6 +22,22 @@
     --gutter: #1f2428;
   }
 
+  [data-theme="light"] {
+    --bg: #f6f8fa;
+    --surface: #ffffff;
+    --surface2: #f0f3f6;
+    --border: #d0d7de;
+    --blue: #0969da;
+    --green: #1a7f37;
+    --yellow: #9a6700;
+    --purple: #8250df;
+    --red: #cf222e;
+    --orange: #953800;
+    --text: #1f2328;
+    --muted: #656d76;
+    --gutter: #f6f8fa;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -327,7 +343,7 @@
     <div class="header-dot dot-red"></div>
     <div class="header-dot dot-yellow"></div>
     <div class="header-dot dot-green"></div>
-    <div class="header-title">PyCalc v1.0</div>
+    <div class="header-title" id="theme-toggle" onclick="toggleTheme()" style="cursor:pointer; user-select:none;">PyCalc v1.0</div>
   </div>
 
   <div class="calc">
@@ -406,6 +422,16 @@ let expression = '';
 let lastResult = null;
 let historyList = [];
 let currentMode = 'basic';
+
+function toggleTheme() {
+  const body = document.body;
+  const currentTheme = body.getAttribute('data-theme');
+  if (currentTheme === 'light') {
+    body.removeAttribute('data-theme');
+  } else {
+    body.setAttribute('data-theme', 'light');
+  }
+}
 
 const exprEl = document.getElementById('expr');
 const resultEl = document.getElementById('result-line');
