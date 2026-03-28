@@ -435,21 +435,34 @@ const math = {
   sqrt: Math.sqrt,
   pi: Math.PI,
   e: Math.E,
-  sin: Math.sin,
-  cos: Math.cos,
-  tan: Math.tan,
+  sin: (x) => isDeg ? Math.sin(x * Math.PI / 180) : Math.sin(x),
+  cos: (x) => isDeg ? Math.cos(x * Math.PI / 180) : Math.cos(x),
+  tan: (x) => isDeg ? Math.tan(x * Math.PI / 180) : Math.tan(x),
   log: Math.log10,
   ln: Math.log,
   abs: Math.abs,
   floor: Math.floor,
   ceil: Math.ceil,
-  round: Math.round
+  round: Math.round,
+  fact: (n) => {
+    if (n < 0) return NaN;
+    if (n === 0) return 1;
+    let res = 1;
+    for (let i = 2; i <= n; i++) res *= i;
+    return res;
+  }
 };
 
 let expression = '';
 let lastResult = null;
 let historyList = [];
 let currentMode = 'basic';
+let isDeg = true;
+
+function toggleDegRad() {
+  isDeg = !isDeg;
+  if (currentMode === 'sci') setMode('sci');
+}
 
 function toggleTheme() {
   const body = document.body;
@@ -616,20 +629,20 @@ function setMode(mode) {
 
   if (mode === 'sci') {
     keypad.innerHTML = `
+      <button class="btn fn" onclick="toggleDegRad()">${isDeg ? 'DEG' : 'RAD'}</button>
+      <button class="btn fn" onclick="insertFn('math.fact(')">n!</button>
+      <button class="btn fn" onclick="insertFn('math.abs(')">|x|</button>
+      <button class="btn clear" onclick="clearAll()">AC</button>
+
       <button class="btn fn" onclick="insertFn('math.sin(')">sin</button>
       <button class="btn fn" onclick="insertFn('math.cos(')">cos</button>
       <button class="btn fn" onclick="insertFn('math.tan(')">tan</button>
-      <button class="btn clear" onclick="clearAll()">AC</button>
+      <button class="btn backspace" onclick="backspace()">⌫</button>
 
       <button class="btn fn" onclick="insertFn('math.log(')">log</button>
       <button class="btn fn" onclick="insertFn('math.ln(')">ln</button>
       <button class="btn fn" onclick="insertFn('math.sqrt(')">√</button>
-      <button class="btn backspace" onclick="backspace()">⌫</button>
-
-      <button class="btn fn" onclick="insertFn('math.pi')">π</button>
-      <button class="btn fn" onclick="insertFn('math.e')">e</button>
       <button class="btn fn" onclick="insert('**')">xʸ</button>
-      <button class="btn fn" onclick="insertFn('math.abs(')">|x|</button>
 
       <button class="btn" onclick="insert('7')">7</button>
       <button class="btn" onclick="insert('8')">8</button>
