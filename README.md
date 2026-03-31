@@ -18,3 +18,11 @@ A simple calculator application built using basic programming concepts. This pro
 ### ▶️ Python
 ```bash
 python calculator.py
+
+🎯 Purpose
+
+This project is created for beginners to understand:
+
+Variables
+Functions
+Conditional statements
