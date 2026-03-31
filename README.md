@@ -7,3 +7,8 @@ A simple calculator application built using basic programming concepts. This pro
 - ➗ Division  
 
 ---
+
+## 🛠️ Tech Stack
+- Python (or JavaScript / HTML-CSS)
+
+---
