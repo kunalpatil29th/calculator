@@ -26,3 +26,8 @@ This project is created for beginners to understand:
 Variables
 Functions
 Conditional statements
+
+💡 Future Improvements
+Add GUI (Tkinter / Web UI)
+Add scientific calculations
+Add history feature
