@@ -12,3 +12,9 @@ A simple calculator application built using basic programming concepts. This pro
 - Python (or JavaScript / HTML-CSS)
 
 ---
+
+## 📂 How to Run
+
+### ▶️ Python
+```bash
+python calculator.py
