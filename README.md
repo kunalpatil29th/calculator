@@ -7,7 +7,7 @@ Subtraction
 Multiplication
 Division
 🔸 Basic Calculator Code
-# calculator.py
+# calculator.p
 
 print("Simple Calculator")
 
