@@ -7,9 +7,7 @@ Subtraction
 Multiplication
 Division
 🔸 Basic Calculator Code
-# calculator.p
 
-print("Simple Calculator")
 
 # Input
 num1 = float(input("Enter first number: "))
